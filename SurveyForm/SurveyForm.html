@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="SurveyForm.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+
+</head>
+<style>
+.form-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.form-group {
+    width: 48%; /* Adjust as needed to leave space for margins and prevent wrapping */
+}
+
+.form-group1 {
+    display: flex;
+    align-items: center;
+}
+
+.radio-group {
+    display: flex;
+    gap: 10px; 
+	margin-left: 14px;
+}
+
+.radio-group label {
+    display: flex;
+    align-items: center;
+}
+
+#submitReset{
+	background-color: #87CEEB;
+    border: 1px solid #777;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 20px;
+    width: 15%;
+}
+/* Add this style to your CSS for the popup container */
+.popup-container {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+}
+
+/* Add this style to your CSS for the close button */
+#popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 2;
+}
+
+
+
+.blur-background {
+    filter: blur(5px);
+}
+
+.hidden {
+    display: none;
+}
+
+#popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+}
+
+.popup-content {
+    /* Add styles for the content inside the popup if needed */
+}
+
+#popup h2 {
+    color: #333333;
+}
+
+#closePopup {
+width: 66px 
+px
+;
+    text-align: center;
+    height: 21px;
+    background-color: #4CAF50;
+    color: #ffffff;
+    border: none;
+    padding: 0px 12px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 4px;
+    margin: 100px 0px 0px 200px;
+}
+
+#closePopup:hover {
+    background-color: #45a049;
+}
+
+.tetsting{
+	width : 100%!important;
+}
+
+</style>
+<body>
+
+    <form id="surveyForm">
+        <div>
+			<h2>Customer Survey Form</h2>
+		</div>
+        <div class="form-container">
+			<div class="form-group">
+				<label for="firstName">First Name</label>
+				<input type="text" id="firstName" placeholder="Enter your first name">
+			</div>
+			<div class="form-group">
+				<label for="lastName">Last Name</label>
+				<input type="text" id="lastName" placeholder="Enter your last name">
+			</div>
+		</div>
+
+        <div class="tetsting form-group">
+          <label for="dob">Date of Birth</label>
+          <input type="date" id="dob">
+        </div>
+
+        <div class="tetsting form-group">
+          <label for="country">Country</label>
+          <select id="country">
+            <option value="" selected disabled>Select your country</option>
+            <!-- Add your country options here -->
+            <option value="India">India</option>
+            <option value="China">China</option>
+            <option value="USA">USA</option>
+            <option value="Japan">Japan</option>
+            <option value="Germany">Germany</option>
+          </select>
+        </div>
+
+        <div class="form-group1  ">
+			<label>Gender : </label>
+			<div class="radio-group">
+				<label for="male"><input type="radio" id="male" name="gender"> Male</label>
+				<label for="female"><input type="radio" id="female" name="gender"> Female</label>
+				<label for="other"><input type="radio" id="other" name="gender"> Other</label>
+			</div>
+		</div>
+
+
+        <div class="tetsting form-group">
+          <label for="profession">Profession</label>
+          <input type="text" id="profession" placeholder="Enter your profession">
+        </div>
+
+        <div class="tetsting form-group">
+          <label for="email">Email Address</label>
+          <input type="text" id="email" placeholder="Enter your email address">
+        </div>
+
+        <div class="tetsting form-group">
+          <label for="mobile">Mobile Number</label>
+          <input type="tel" id="mobile" placeholder="Enter your mobile number">
+        </div>
+
+        <div class="tetsting form-group">
+          <button type="button" onclick="submitForm()" id="submitReset">Submit</button>
+          <button type="button" onclick="resetForm()" id="submitReset">Reset</button>
+        </div>
+      </form>
+
+
+
+      <script src="SurveyForm.js"></script>
+	  <!-- Assuming you have a popup container -->
+	<div id="popup" class="popup-container">
+    <div id="popupContent" class="popup-content"></div>
+	<h2>form submitted successfully</h2>
+    <button id="closePopup" onclick="closePopup()">Close</button>
+</div>
+
+</body>
+</html>
